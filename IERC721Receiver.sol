@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 // File: @openzeppelin/contracts/token/ERC721/IERC721Receiver.sol
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/IERC721Receiver.sol)
 

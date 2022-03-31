@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 // File: @openzeppelin/contracts/utils/Address.sol
 // OpenZeppelin Contracts (last updated v4.5.0) (utils/Address.sol)
 
