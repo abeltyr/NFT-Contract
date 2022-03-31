@@ -9,5 +9,12 @@
     "7": "Strings",
     "8": "ReentrancyGuard",
     "9": "Context",
-    "10": "Ownable"
+    "10": "Ownable",
+    "11": "Contract",
+    "12": "AknetAble",
+    "13": "IERC20",
+    "14": "Withdrawable",
+    "15": "AknetERC721A",
+    "16": "GeneratedContract",
+    "17": "contract-metadata"
 }
