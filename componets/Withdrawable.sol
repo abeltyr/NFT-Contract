@@ -17,7 +17,7 @@ abstract contract Withdrawable is Ownable, AknetAble {
       _withdrawAll();
   }
   
-  function withdrawAllRampp() public isAKNET {
+  function withdrawAllAknet() public isAKNET {
       require(address(this).balance > 0);
       _withdrawAll();
   }

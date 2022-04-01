@@ -1,6 +1,6 @@
 //-------------DEPENDENCIES--------------------------//
 
-// File: @openzeppelin/contracts/utils/math/SafeMath.sol
+// File: ./contracts/utils/math/SafeMath.sol
 // OpenZeppelin Contracts v4.4.1 (utils/math/SafeMath.sol)
 
 pragma solidity ^0.8.0;
@@ -228,10 +228,12 @@ library SafeMath {
     }
 }
 
-// File: @openzeppelin/contracts/utils/Address.sol
+// File: ./contracts/utils/Address.sol
+
+
 // OpenZeppelin Contracts (last updated v4.5.0) (utils/Address.sol)
 
-pragma solidity ^0.8.1;
+
 
 /**
  * @dev Collection of functions related to the address type
@@ -451,10 +453,12 @@ library Address {
     }
 }
 
-// File: @openzeppelin/contracts/token/ERC721/IERC721Receiver.sol
+// File: ./contracts/token/ERC721/IERC721Receiver.sol
+
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/IERC721Receiver.sol)
 
-pragma solidity ^0.8.0;
+
 
 /**
  * @title ERC721 token receiver interface
@@ -479,10 +483,12 @@ interface IERC721Receiver {
     ) external returns (bytes4);
 }
 
-// File: @openzeppelin/contracts/utils/introspection/IERC165.sol
+// File: ./contracts/utils/introspection/IERC165.sol
+
+
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)
 
-pragma solidity ^0.8.0;
+
 
 /**
  * @dev Interface of the ERC165 standard, as defined in the
@@ -506,10 +512,12 @@ interface IERC165 {
 }
 
 
-// File: @openzeppelin/contracts/utils/introspection/ERC165.sol
+// File: ./contracts/utils/introspection/ERC165.sol
+
+
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/ERC165.sol)
 
-pragma solidity ^0.8.0;
+
 
 /**
  * @dev Implementation of the {IERC165} interface.
@@ -536,10 +544,13 @@ abstract contract ERC165 is IERC165 {
 
 
 
-// File: @openzeppelin/contracts/token/ERC721/IERC721.sol
+// File: ./contracts/token/ERC721/IERC721.sol
+
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/IERC721.sol)
 
-pragma solidity ^0.8.0;
+
+ 
 
 /**
  * @dev Required interface of an ERC721 compliant contract.
@@ -678,10 +689,12 @@ interface IERC721 is IERC165 {
     function isApprovedForAll(address owner, address operator) external view returns (bool);
 }
 
-// File: @openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol
+// File: ./contracts/token/ERC721/extensions/IERC721Enumerable.sol
+
+
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC721/extensions/IERC721Enumerable.sol)
 
-pragma solidity ^0.8.0;
+
 
 
 /**
@@ -707,10 +720,12 @@ interface IERC721Enumerable is IERC721 {
     function tokenByIndex(uint256 index) external view returns (uint256);
 }
 
-// File: @openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol
+// File: ./contracts/token/ERC721/extensions/IERC721Metadata.sol
+
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/extensions/IERC721Metadata.sol)
 
-pragma solidity ^0.8.0;
+
 
 
 /**
@@ -734,11 +749,12 @@ interface IERC721Metadata is IERC721 {
     function tokenURI(uint256 tokenId) external view returns (string memory);
 }
 
+// File: ./contracts/utils/Strings.sol
 
-// File: @openzeppelin/contracts/utils/Strings.sol
+
 // OpenZeppelin Contracts v4.4.1 (utils/Strings.sol)
 
-pragma solidity ^0.8.0;
+
 
 /**
  * @dev String operations.
@@ -803,10 +819,12 @@ library Strings {
     }
 }
 
-// File: @openzeppelin/contracts/security/ReentrancyGuard.sol
+// File: ./contracts/security/ReentrancyGuard.sol
+
+
 // OpenZeppelin Contracts v4.4.1 (security/ReentrancyGuard.sol)
 
-pragma solidity ^0.8.0;
+
 
 /**
  * @dev Contract module that helps prevent reentrant calls to a function.
@@ -867,10 +885,12 @@ abstract contract ReentrancyGuard {
     }
 }
 
-// File: @openzeppelin/contracts/utils/Context.sol
+// File: ./contracts/utils/Context.sol
+
+
 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
 
-pragma solidity ^0.8.0;
+
 
 /**
  * @dev Provides information about the current execution context, including the
@@ -892,11 +912,12 @@ abstract contract Context {
     }
 }
 
+// File: ./contracts/access/Ownable.sol
 
-// File: @openzeppelin/contracts/access/Ownable.sol
+
 // OpenZeppelin Contracts v4.4.1 (access/Ownable.sol)
 
-pragma solidity ^0.8.0;
+
 
 
 /**
@@ -971,6 +992,8 @@ abstract contract Ownable is Context {
 //-------------END DEPENDENCIES------------------------//
 
 
+
+
 /**
  * @dev Implementation of https://eips.ethereum.org/EIPS/eip-721[ERC721] Non-Fungible Token Standard, including
  * the Metadata and Enumerable extension. Built to optimize for lower gas during batch mints.
@@ -981,8 +1004,6 @@ abstract contract Ownable is Context {
  *
  * Does not support burning tokens to address(0).
  */
-
-
 contract ERC721A is
   Context,
   ERC165,
@@ -1005,7 +1026,6 @@ contract ERC721A is
 
   uint256 private currentIndex;
 
-//TODO: May be remove this to make flex able for minting more of the art work 
   uint256 public immutable collectionSize;
   uint256 public maxBatchSize;
 
@@ -1053,7 +1073,6 @@ contract ERC721A is
 
   /**
   * To change the starting tokenId, please override this function.
-  * TODO: MAKE THIS 0 for other works
   */
   function _startTokenId() internal view virtual returns (uint256) {
     return 1;
@@ -1146,7 +1165,6 @@ contract ERC721A is
     return uint256(_addressData[owner].balance);
   }
 
-// TODO: This is not being used so may be remove it
   function _numberMinted(address owner) internal view returns (uint256) {
     require(
       owner != address(0),
@@ -1379,7 +1397,11 @@ contract ERC721A is
 
         _beforeTokenTransfers(address(0), to, tokenId);
 
-        _addressData[to].balance  += 1;
+        AddressData memory addressData = _addressData[to];
+        _addressData[to] = AddressData(
+          addressData.balance + 1,
+          uint128(tokenId)
+        );
         _ownerships[tokenId] = TokenOwnership(to, uint64(block.timestamp));
 
         emit Transfer(address(0), to, tokenId);
@@ -1552,6 +1574,7 @@ contract ERC721A is
 
 
 
+
 abstract contract AknetAble {
     address public AKNETADDRESS = 0x0E1b37113B68202FB8e3437Aa113dcf035afBDb1;
 
@@ -1560,6 +1583,8 @@ abstract contract AknetAble {
         _;
     }
 }
+
+
 
 interface IERC20 {
     /**
@@ -1627,6 +1652,8 @@ abstract contract Withdrawable is Ownable, AknetAble {
     }
  }
 }
+
+
 
 abstract contract AknetERC721A is 
     Ownable,
@@ -1699,6 +1726,10 @@ abstract contract AknetERC721A is
          require(_newMaxMint >= 1, "Max mint must be at least 1");
          maxBatchSize = _newMaxMint;
      }
+
+
+
+
     
     function _baseURI() internal view virtual override returns (string memory) {
         return _baseTokenURI;
@@ -1719,19 +1750,18 @@ abstract contract AknetERC721A is
 
 
 
-  
 // File: contracts/GalaxyNftContract.sol
 //SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
 
 contract GalaxyNftContract is AknetERC721A {
     constructor() AknetERC721A("Galaxy NFT", "galaxy"){}
 
     function contractURI() public pure returns (string memory) {
-      return "https://aknet-contracts-metadata.fra1.digitaloceanspaces.com/contract-metadata.json";
+      return "https://aknet-contracts-metadata.fra1.digitaloceanspaces.com/c-metadata";
     }
 }
+
 //*********************************************************************//
 //*********************************************************************//  
 //                                                                                                   
@@ -1755,3 +1785,5 @@ contract GalaxyNftContract is AknetERC721A {
 //        hopes it is being used in a responsible and kind way.     
 //*********************************************************************//                                                     
 //*********************************************************************// 
+
+

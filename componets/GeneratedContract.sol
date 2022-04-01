@@ -1,7 +1,3 @@
-
-
-
-  
 // File: contracts/StarNftContract.sol
 //SPDX-License-Identifier: MIT
 

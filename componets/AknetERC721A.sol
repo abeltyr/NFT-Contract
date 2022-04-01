@@ -15,7 +15,7 @@ abstract contract AknetERC721A is
     constructor(
         string memory tokenName,
         string memory tokenSymbol
-    ) ERC721A(tokenName, tokenSymbol, 2, 15 ) {}
+    ) ERC721A(tokenName, tokenSymbol, 2, 15000 ) {}
     using SafeMath for uint256;
     uint8 public CONTRACT_VERSION = 2;
     string public _baseTokenURI = "ipfs://QmbMfkUgQsxHQDVGL5WYZS7BzVJMZdgriPrSzntQriGpyq/";
