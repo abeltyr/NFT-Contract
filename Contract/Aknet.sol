@@ -1254,24 +1254,6 @@ contract ERC721A is
     revert("ERC721A: unable to get token of owner by index");
   }
 
-//   /**
-//    * @dev See {IERC165-supportsInterface}.
-//    */
-//   function supportsInterface(bytes4 interfaceId)
-//     public
-//     view
-//     virtual
-//     override(ERC165, IERC165)
-//     returns (bool)
-//   {
-//     return
-//       interfaceId == type(IERC721).interfaceId ||
-//       interfaceId == type(IERC721Metadata).interfaceId ||
-//       interfaceId == type(IERC721Enumerable).interfaceId ||
-//       super.supportsInterface(interfaceId);
-//   }
-
-
   /**
    * @dev See {IERC721-balanceOf}.
    */
@@ -1752,6 +1734,23 @@ abstract contract AknetERC721A is
     uint256 public mintingFee = 0.1 ether;
     
 
+    /**
+    * @dev See {IERC165-supportsInterface}.
+    */
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(ERC165, IERC165)
+        returns (bool)
+    {
+        return
+        interfaceId == type(IERC721).interfaceId ||
+        interfaceId == type(IERC721Metadata).interfaceId ||
+        interfaceId == type(IERC721Enumerable).interfaceId ||
+        interfaceId == type(IERC2981).interfaceId ||
+        super.supportsInterface(interfaceId);
+    }
     
     /////////////// Admin Mint Functions
     /**
